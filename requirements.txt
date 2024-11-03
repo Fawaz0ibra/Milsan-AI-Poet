@@ -1,0 +1,10 @@
+streamlit
+pandas
+langchain_huggingface
+langchain
+langchain-community
+langchain_chroma
+chromadb
+ibm_watsonx_ai
+markdown
+python-dotenv
