@@ -1,10 +1,12 @@
 # app.py
+
+
 import streamlit as st
 import pandas as pd
 import os
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from ibm_watsonx_ai.foundation_models import Model
 import markdown
 import getpass
@@ -92,7 +94,8 @@ def create_documents(df):
 
 def create_embedding(documents):
     embeddings = HuggingFaceEmbeddings(model_name="Omartificial-Intelligence-Space/GATE-AraBert-v0")
-    return Chroma.from_documents(documents, embeddings, persist_directory="./chroma_db")
+  
+    return FAISS.from_documents(documents, embeddings)
 
 def get_credentials():
     return {
